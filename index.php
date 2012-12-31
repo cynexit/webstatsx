@@ -225,7 +225,7 @@ include('header.php');
 						  </thead>
 						  <tbody>
 						  	<?php
-							while ($player = $stats_global->get_players('playtime', 'desc', 8)){
+							while ($player = $stats_global->get_players('playtime', 'desc', 10)){
             					echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$player->player.'">'.$player->player.'</a></td>';
             					echo '<td>'.$player->playtime.'</td>';
             					echo '<td>'.$player->joins.'</td>';
