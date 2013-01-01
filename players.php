@@ -11,7 +11,7 @@
 				</ul>
 			</div>
 			
-			<div class="row-fluid sortable">		
+			<div class="row-fluid">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-user"></i> Players</h2>
@@ -24,7 +24,7 @@
 						-->
 					</div>
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
+						<table class="table table-striped table-bordered bootstrap-datatable ajax-datatable">
 						  <thead>
 							  <tr>
 								  <th>Username</th>
@@ -37,17 +37,7 @@
 							  </tr>
 						  </thead>
 						  <tbody>
-						  	<?php
-						  	while ($player = $stats_global->get_players()) {
-            					echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$player->player.'">'.$player->player.'</a></td>';
-            					echo '<td>'.$player->playtime.'</td>';
-            					echo '<td>'.$player->joins.'</td>';
-            					echo '<td>'.$player->xpgained.'</td>';
-            					echo '<td>'.$player->damagetaken.'</td>';
-            					echo '<td>'.$player->timeskicked.'</td>';
-            					echo '<td>'.$player->itemscrafted.'</td></tr>';
-            				}            				
-							?>							
+						  						
 						  </tbody>
 					  </table>            
 					</div>

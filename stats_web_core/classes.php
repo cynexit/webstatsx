@@ -220,7 +220,7 @@ class stats_global extends stats_settings {
 				$s .= 'asc';
 			}
 
-			if(!empty($limit) AND is_integer($limit)){
+			if(!empty($limit)){
 				$s .= ' LIMIT '.mysqli_real_escape_string($this->mysqli, $limit);
 			}
 
