@@ -62,7 +62,7 @@ include('header.php');
 						 	$player = $stats_global->get_top_players_move('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
-								echo '<td>'.$row[1].'</td></tr>';
+								echo '<td>'.number_format($row[1], 2, '.', '').'</td></tr>';
 							}
 							?>							
 						  </tbody>
