@@ -153,6 +153,7 @@ function docReady(){
 	$('.datatable').dataTable({
 			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
 			"sPaginationType": "bootstrap",
+			"bProcessing": true,
 			"oLanguage": {
 			"sLengthMenu": "_MENU_ records per page"
 			}
@@ -174,8 +175,24 @@ function docReady(){
 	});
 
 
+	//players overview datatable
+	$('.ajax-datatable').dataTable({
+			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
+			"sPaginationType": "bootstrap",
+			"bProcessing": true,
+			"bServerSide": true,
+			"fnInitComplete": function(oSettings, json) {
+      			//$('.dataTables_processing').addClass('btn btn-large btn-primary');
+      			//noty({"text":"This is an error notification","layout":"center","type":"error"});
+    		},
+			"sAjaxSource": "ajax_player_table.php",
+			"oLanguage": {
+				"sLengthMenu": "_MENU_ records per page"
+			}
+	} );
+
 	if($("#load_charts").length){
-		$.getScript("charts.php?p="+$('#player_id').html());
+		$.getScript("ajax_charts.php?p="+$('#player_id').html());
 	}
 
 	console.log('everything loaded');
