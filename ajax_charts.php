@@ -22,14 +22,27 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 	?>
 	];
 
+
 	if($("#piechart_kills").length)
 	{
 		$.plot($("#piechart_kills"), all_kills_data,
 		{
 			series: {
-					pie: {
-							show: true
+				pie: {
+					show: true,
+					radius: 1,
+					label: {
+						formatter: function(label, series){
+							return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+						},
+						show: false,
+						radius: 3/4,
+						background: {
+							opacity: 0.5,
+							color: '#000'
+						}
 					}
+				}
 			},
 			grid: {
 					hoverable: true,
@@ -40,14 +53,18 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 			}
 		});
 		
-		function pieHover(event, pos, obj)
+		function pieHover_kills(event, pos, obj)
 		{
 			if (!obj)
 					return;
 			percent = parseFloat(obj.series.percent).toFixed(2);
-			$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+			$("#hover_kills").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+			//$("#hover_kills").css('top', pos.pageY-($('#hover_kills span').height()+5));
+			//$("#hover_kills").css('left', pos.pageX);
 		}
-		$("#piechart").bind("plothover", pieHover);
+
+		$("#piechart_kills").bind("plothover", pieHover_kills);
+		//$("#piechart_kills").bind("plotclick", pieClick);
 	}
 
 	if($("#piechart_deaths").length)
@@ -55,9 +72,21 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 		$.plot($("#piechart_deaths"), all_deaths_data,
 		{
 			series: {
-					pie: {
-							show: true
+				pie: {
+					show: true,
+					radius: 1,
+					label: {
+						formatter: function(label, series){
+							return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+						},
+						show: false,
+						radius: 3/4,
+						background: {
+							opacity: 0.5,
+							color: '#000'
+						}
 					}
+				}
 			},
 			grid: {
 					hoverable: true,
@@ -68,12 +97,16 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 			}
 		});
 		
-		function pieHover(event, pos, obj)
+		function pieHover_deaths(event, pos, obj)
 		{
 			if (!obj)
 					return;
 			percent = parseFloat(obj.series.percent).toFixed(2);
-			$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+			$("#hover_deaths").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+			//$("#hover_deaths").css('top', pos.pageY-($('#hover_deaths span').height()+5));
+			//$("#hover_deaths").css('left', pos.pageX);
+
 		}
-		$("#piechart").bind("plothover", pieHover);
+
+		$("#piechart_deaths").bind("plothover", pieHover_deaths);
 	}

@@ -253,6 +253,7 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 								-->
 							</div>
 							<div class="box-content centered">
+								<div id="hover_kills" class="chart_hover_box">Move the mousepointer over the cart! ;)</div>
 								<div id="piechart_kills" style="height:300px"></div>
 								<?php $top = $player->get_all_kills(1); ?>
 								<img height="200" src="img/entities/<?php echo $top[0][0]; ?>.png" alt="Top killed" />
@@ -271,6 +272,7 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 								-->
 							</div>
 							<div class="box-content centered">
+								<div id="hover_deaths" class="chart_hover_box">Move the mousepointer over the cart! ;)</div>
 								<div id="piechart_deaths" style="height:300px"></div>
 								<?php $top = $player->get_all_deaths(1); ?>
 								<img height="200" src="img/entities/<?php echo $top[0][0]; ?>.png" alt="Top killer" />
