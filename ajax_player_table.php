@@ -170,10 +170,10 @@
 		$row = array();
 		for ( $i=0 ; $i<count($aColumns) ; $i++ )
 		{
-			if ( $aColumns[$i] == "version" )
+			if ( $aColumns[$i] == "player" )
 			{
 				/* Special output formatting for 'version' column */
-				$row[] = ($aRow[ $aColumns[$i] ]=="0") ? '-' : $aRow[ $aColumns[$i] ];
+				$row[] = '<a class="ajax-link" href="single_player.php?p='.$aRow[ $aColumns[$i] ].'">'.$aRow[ $aColumns[$i] ].'</a>';
 			}
 			else if ( $aColumns[$i] != ' ' )
 			{
