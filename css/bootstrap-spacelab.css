@@ -4633,3 +4633,11 @@ div.subnav .nav > .open > .dropdown-toggle:hover .caret {
 .invisible {
   visibility: hidden;
 }
+.chart_hover_box {
+  position: absolute;
+  z-index: 999;
+  padding: 2px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: block;
+}
