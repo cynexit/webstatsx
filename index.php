@@ -20,7 +20,7 @@ include('header.php');
 
 				<a class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-sent"></span>
-					<div>Total distance traveled by players</div>
+					<div>Total distance travelled by players</div>
 					<div><?php echo number_format($stats_global->get_total_distance_moved(), 2, '.', ''); ?></div>
 				</a>
 
@@ -40,7 +40,7 @@ include('header.php');
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by distance traveled</h2>
+						<h2><i class="icon-user"></i> Top 10 by distance travelled</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -173,7 +173,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by blocks brocken</h2>
+						<h2><i class="icon-user"></i> Top 10 by blocks broken</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -187,12 +187,12 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total blocks brocken</th>
+									<th>Total blocks broken</th>
 								</tr>
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_blocks_brocken('mysql', 10);
+						 	$player = $stats_global->get_top_players_blocks_broken('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';

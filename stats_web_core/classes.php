@@ -73,11 +73,11 @@ class stats_player extends stats_settings {
 		}
 	}
 
-	private function convert_playtime($pt){
-		$hours = floor(($pt / 3600) % 24);
-		$mins = floor(($pt / 60) % 60);
-		$secs = floor($pt % 60);
+	public static function convert_playtime($pt){
 		$days = floor($pt / 86400);
+		$hours = floor(($pt - $days*86400) / 3600);
+		$mins = floor(($pt - $hours*3600 - $days*86400) / 60);
+		$secs = floor($pt - $hours*3600 - $days*86400 - $mins*60);
 		return $days.'d:'.$hours.'h:'.$mins.'m:'.$secs.'s';
 	}
 
@@ -355,7 +355,7 @@ class stats_global extends stats_settings {
 		}
 	}
 
-	public function get_top_players_blocks_brocken($res_type = NULL, $limit = NULL){
+	public function get_top_players_blocks_broken($res_type = NULL, $limit = NULL){
 		if(empty($limit) || !is_integer($limit)){
 			$res = mysqli_query($this->mysqli, 'SELECT player, SUM(amount) as amn FROM '.$this->prefix.'block WHERE break = 1 GROUP BY player ORDER BY amn desc');
 		} else {
