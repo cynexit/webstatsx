@@ -73,11 +73,12 @@ class stats_player extends stats_settings {
 		}
 	}
 
-	private function convert_playtime($pt){
-		$hours = floor($pt / 3600);
-		$mins = floor(($pt - ($hours*3600)) / 60);
-		$secs = floor($pt - ($hours*3600) - ($mins*60));
-		$days = floor($hours / 24);
+	public static function convert_playtime($pt){
+		$days = floor($pt / 86400);
+		$hours = floor(($pt - $days*86400) / 3600);
+		$mins = floor(($pt - $hours*3600 - $days*86400) / 60);
+		$secs = floor($pt - $hours*3600 - $days*86400 - $mins*60);
+		
 		return $days.'d:'.$hours.'h:'.$mins.'m:'.$secs.'s';
 	}
 

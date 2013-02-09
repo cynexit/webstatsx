@@ -41,7 +41,7 @@ $bonus_methods = new bonus_methods();
 	<link href='css/colorbox.css' rel='stylesheet'>
 	<link href='css/jquery.noty.css' rel='stylesheet'>
 	<link href='css/noty_theme_default.css' rel='stylesheet'>
-	<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
+	<!--<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>-->
 	<link href='css/opa-icons.css' rel='stylesheet'>
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -75,7 +75,7 @@ $bonus_methods = new bonus_methods();
 						<?php
 						$state = $bonus_methods->check_server();
 						if(empty($state)){
-							echo '<span class="label">unknowen</span>';
+							echo '<span class="label">unknown</span>';
 						} elseif($state === true) {
 							echo '<span class="label label-success">Online</span>';
 						} else {
@@ -101,6 +101,7 @@ $bonus_methods = new bonus_methods();
 						<li class="nav-header hidden-tablet">Main</li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 						<li><a class="ajax-link" href="players.php"><i class="icon-user"></i><span class="hidden-tablet"> Players</span></a></li>
+						<li><a class="ajax-link" href="server.php"><i class="icon-hdd"></i><span class="hidden-tablet"> Server</span></a></li>
 						<li class="nav-header hidden-tablet">More to come :D</li>
 					</ul>
 				</div><!--/.well -->
