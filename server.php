@@ -29,9 +29,12 @@
 						//$data = explode(' ', shell_exec('uptime'));
 
 						$cores = shell_exec("cat /proc/cpuinfo | grep processor | wc -l");
+						echo '<!-- cores: '.$cores.' -->';
 						$load = sys_getloadavg();
 						foreach ($load as $k => $v) {
-							if($v > $cores){
+							if($cores == 0){
+								$load[$k] = '<span class="label label-info">'.$v.'</span>';
+							} elseif($v > $cores){
 								$load[$k] = '<span class="label label-important">'.$v.'</span>';
 							} else {
 								$load[$k] = '<span class="label label-success">'.$v.'</span>';
