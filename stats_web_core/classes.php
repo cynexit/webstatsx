@@ -356,7 +356,7 @@ class stats_global extends stats_settings {
 		}
 	}
 
-	public function get_top_players_blocks_brocken($res_type = NULL, $limit = NULL){
+	public function get_top_players_blocks_broken($res_type = NULL, $limit = NULL){
 		if(empty($limit) || !is_integer($limit)){
 			$res = mysqli_query($this->mysqli, 'SELECT player, SUM(amount) as amn FROM '.$this->prefix.'block WHERE break = 1 GROUP BY player ORDER BY amn desc');
 		} else {
