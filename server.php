@@ -14,7 +14,7 @@
 			<div class="row-fluid">		
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-hdd"></i> Server statistics</h2>
+						<h2><i class="icon-hdd"></i> Server statistics [beta]</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
