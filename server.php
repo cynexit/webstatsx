@@ -29,7 +29,7 @@
 						//$data = explode(' ', shell_exec('uptime'));
 
 						$cores = shell_exec("cat /proc/cpuinfo | grep processor | wc -l");
-						echo '<!-- cores: '.$cores.' -->';
+						echo '<!-- cores found on system: '.$cores.' -->';
 						$load = sys_getloadavg();
 						foreach ($load as $k => $v) {
 							if($cores == 0){
