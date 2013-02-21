@@ -9,7 +9,7 @@
 
 		<div class="modal hide fade" id="modal_info">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">×</button>
+				<button type="button" class="close" data-dismiss="modal">Ã—</button>
 				<h3>info()</h3>
 			</div>
 			<div class="modal-body">
