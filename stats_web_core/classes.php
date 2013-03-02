@@ -14,8 +14,8 @@ abstract class stats_settings {
 		$this->mysqli = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
 
 		//set charset of tables (sadly not utf-8)
-		if (!mysqli_set_charset($this->mysqli, 'latin1')){
-			printf('Error loading character set latin1: %s<br/>mysqli_real_escape_string() might not work proper.', $this->mysqli->error);
+		if (!mysqli_set_charset($this->mysqli, $mysql_encoding)){
+			printf('Error loading character set %s: %s<br/>mysqli_real_escape_string() might not work proper.', $mysql_encoding, $this->mysqli->error);
 		}
 		
 		//no connection? End everything!
@@ -384,24 +384,36 @@ class bonus_methods {
 	public $tmotd;
 	public $tmotd_headline;
 	public $server_ip;
+	public $custom_links;
 	private $server_port;
 
 	function __construct(){
 		//include __dir__.'/../config_bonus.php';
 		include __dir__.'/../config.php';
 
-		/*$this->tmotd = $motd;
-		$this->tmotd_headline = $motd_headline;
+		//$this->tmotd = $motd;
+		//$this->tmotd_headline = $motd_headline;
 
-		if(empty($link_to_map)){
-			$this->map_link = '#';
-		} else {
-			$this->map_link = $link_to_map;
-		}*/
+    if(empty($link_to_map)){
+      $this->map_link = '#';
+    } else {
+      $this->map_link = $link_to_map;
+    }
 
-		$this->server_ip = $server_ip;
-		$this->server_port = $server_port;
-	}
+    $this->custom_links = $custom_links;
+    $this->server_ip = $server_ip;
+    $this->server_port = $server_port;
+
+  }
+
+  public function get_custom_links(){
+    $links = $this->custom_links;
+    $prepared_links = "";
+    foreach ($links as $name => $url) {
+      $prepared_links .= "<li><a href='". $url ."'><i class='icon-arrow-left'></i><span class='hidden-tablet'> ". $name ."</span></a></li>" ;
+    }
+    return $prepared_links;
+  }
 
 	public function check_server(){
 		if(empty($this->server_ip)){

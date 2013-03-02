@@ -104,7 +104,7 @@ $(document).ready(function(){
 function docReady(){
 //resize iframe
 	if($('#map_frame').length != 0){
-		$('#map_frame').css('height', $('#table_top_time').parent().height());
+		$('#map_frame').css('height', $(window).height());
 	}
 
 	//prevent # links from moving to top
