@@ -391,19 +391,20 @@ class bonus_methods {
 		//include __dir__.'/../config_bonus.php';
 		include __dir__.'/../config.php';
 
-		/*$this->tmotd = $motd;
-		$this->tmotd_headline = $motd_headline;
+		//$this->tmotd = $motd;
+		//$this->tmotd_headline = $motd_headline;
 
-		if(empty($link_to_map)){
-			$this->map_link = '#';
-		} else {
-			$this->map_link = $link_to_map;
-		}*/
+    if(empty($link_to_map)){
+      $this->map_link = '#';
+    } else {
+      $this->map_link = $link_to_map;
+    }
 
-		$this->custom_links = $custom_links;
-		$this->server_ip = $server_ip;
-		$this->server_port = $server_port;
-	}
+    $this->custom_links = $custom_links;
+    $this->server_ip = $server_ip;
+    $this->server_port = $server_port;
+
+  }
 
   public function get_custom_links(){
     $links = $this->custom_links;

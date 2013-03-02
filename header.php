@@ -102,12 +102,9 @@ $bonus_methods = new bonus_methods();
 						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 						<li><a class="ajax-link" href="players.php"><i class="icon-user"></i><span class="hidden-tablet"> Players</span></a></li>
 						<li><a class="ajax-link" href="server.php"><i class="icon-hdd"></i><span class="hidden-tablet"> Server</span></a></li>
+            <li><a class="ajax-link" href="map.php"><i class="icon-map-marker"></i><span class="hidden-tablet"> Map</span></a></li>
 
-            <?php if(!isset($custom_links) || !$custom_links) { ?>
-              <?php foreach ($custom_links as $name => $url) {
-                echo "<li><a href='". $url ."'><i class='icon-arrow-left'></i><span class='hidden-tablet'> ".$name."</span></a></li>"             
-              } 
-            }?> 
+						<?php echo $bonus_methods -> get_custom_links() ?> 
             
 						<li class="nav-header hidden-tablet">More to come :D</li>
 					</ul>
