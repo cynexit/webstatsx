@@ -34,6 +34,7 @@ $bonus_methods = new bonus_methods();
 	  }
 	</style>
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/charisma-app.css" rel="stylesheet">
 	<link href="css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
 	<link href='css/chosen.css' rel='stylesheet'>
@@ -101,11 +102,11 @@ $bonus_methods = new bonus_methods();
 						<li class="nav-header hidden-tablet">Main</li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 						<li><a class="ajax-link" href="players.php"><i class="icon-user"></i><span class="hidden-tablet"> Players</span></a></li>
-						<li><a class="ajax-link" href="server.php"><i class="icon-hdd"></i><span class="hidden-tablet"> Server</span></a></li>
+						<li><a class="ajax-link" href="server.php"><i class="icon-hdd"></i><span class="hidden-tablet"> Server</span></a></li> 
             <li><a class="ajax-link" href="map.php"><i class="icon-map-marker"></i><span class="hidden-tablet"> Map</span></a></li>
-
-						<?php echo $bonus_methods -> get_custom_links() ?> 
             
+						<?php echo $bonus_methods -> get_custom_links() ?> 
+
 						<li class="nav-header hidden-tablet">More to come :D</li>
 					</ul>
 				</div><!--/.well -->
