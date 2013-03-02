@@ -14,8 +14,8 @@ abstract class stats_settings {
 		$this->mysqli = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
 
 		//set charset of tables (sadly not utf-8)
-		if (!mysqli_set_charset($this->mysqli, 'latin1')){
-			printf('Error loading character set latin1: %s<br/>mysqli_real_escape_string() might not work proper.', $this->mysqli->error);
+		if (!mysqli_set_charset($this->mysqli, $mysql_encoding)){
+			printf('Error loading character set %s: %s<br/>mysqli_real_escape_string() might not work proper.', $mysql_encoding, $this->mysqli->error);
 		}
 		
 		//no connection? End everything!
