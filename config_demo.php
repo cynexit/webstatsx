@@ -4,7 +4,7 @@ $mysql_host = 'localhost'; // or 127.0.0.1
 $mysql_user = 'MYSQL_USER';
 $mysql_pass = 'MYSQL_PASSWORD';
 $mysql_db = 'MYSQL_DATABASE_NAME';
-$mysql_encoding = 'latin1';  // this is recommended don't know why but it is.
+$mysql_encoding = 'latin1';  // this is recommended because the plugin creates all its tables with latin1 encoding
 $prefix = 'Stats_'; // [default=stats]
 
 // not necessary, but cool
