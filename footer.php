@@ -16,6 +16,7 @@
 				<p><a href="http://dev.bukkit.org/server-mods/lolmewnstats/">Bukkit Stats plugin</a> by <a href="http://www.centrility.nl/">Lolmewn</a></p>
 				<p><a href="http://usman.it/free-responsive-admin-template">Free admin theme "charisma"</a> by <a href="http://usman.it/about/">Muhammad Usman</a></p>
 				<p><a href="#">PHP code, HTML &amp; JS modifications</a> by <a href="http://cynexit.com/">cynexit</a></p>
+				<p><a href="#">Block & Mob Images</a> taken from <a href="http://www.minecraftwiki.net/">MineCraft Wiki</a></p>
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Close</a>
