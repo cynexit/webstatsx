@@ -49,7 +49,7 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 											<td><?php echo $player->joins; ?></td>
 										</tr>
 										<tr>
-											<td>Fish catched:</td>
+											<td>Fish caught:</td>
 											<td><?php echo $player->fishcatch; ?></td>
 											<td>Damage taken:</td>
 											<td><?php echo $player->damagetaken; ?></td>
