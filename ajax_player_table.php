@@ -173,7 +173,7 @@
 			if ( $aColumns[$i] == "player" )
 			{
 				/* Special output formatting for 'version' column */
-				$row[] = '<a class="ajax-link" href="single_player.php?p='.$aRow[ $aColumns[$i] ].'">'.$aRow[ $aColumns[$i] ].'</a>';
+				$row[] = '<a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$aRow[ $aColumns[$i] ].'/256\'>" title="Avatar" href="single_player.php?p='.$aRow[ $aColumns[$i] ].'"><img src="https://minotar.net/avatar/'.$aRow[ $aColumns[$i] ].'/20"> '.$aRow[ $aColumns[$i] ].'</a>';
 			}
 			else if ( $aColumns[$i] != ' ' )
 			{

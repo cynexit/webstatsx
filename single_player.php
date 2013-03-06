@@ -77,9 +77,9 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 											<td><?php echo $player->wordssaid; ?></td>
 											<td>Commands done:</td>
 											<td><?php echo $player->commandsdone; ?></td>
-										</tr>      
-									  </tbody>
-								 </table>      
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div><!--/span-->
 					</div>

@@ -185,6 +185,9 @@ function docReady(){
       			//$('.dataTables_processing').addClass('btn btn-large btn-primary');
       			//noty({"text":"This is an error notification","layout":"center","type":"error"});
     		},
+    		"fnDrawCallback": function( oSettings ) {
+    			$('[rel="popover"],[data-rel="popover"]').popover();
+    		},
 			"sAjaxSource": "ajax_player_table.php",
 			"oLanguage": {
 				"sLengthMenu": "_MENU_ records per page"
