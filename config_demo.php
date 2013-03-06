@@ -11,11 +11,12 @@ $prefix = 'Stats_'; // [default=stats]
 $server_ip = 'example.com'; // can be an real ip or an dns alias
 $server_port = 25565; // [default=25565]
 
-$link_to_map = "http://".$server_ip . ":8123";
+$link_to_map = "http://".$server_ip . ":8123"; // Don't want the link to be displayed? Use: $link_to_map = "";
 
 $custom_links = array(
   "Dynamap" => $link_to_map,
   "Mojang" => "http://mojang.com"
 );
 
+$enable_server_page = false; //BETA!! Needs some special rights your webserver might not have on the host system
 ?>
