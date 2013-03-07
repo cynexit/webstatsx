@@ -14,7 +14,7 @@
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by distance traveled</h2>
+						<h2><i class="icon-user"></i> Top 10 travellers</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -46,7 +46,7 @@
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by kills</h2>
+						<h2><i class="icon-user"></i> Top 10 killers</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -78,7 +78,7 @@
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by deaths</h2>
+						<h2><i class="icon-user"></i> Top 10 deaths</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -115,7 +115,7 @@
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by blocks placed</h2>
+						<h2><i class="icon-user"></i> Top 10 builders</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -147,7 +147,7 @@
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by blocks brocken</h2>
+						<h2><i class="icon-user"></i> Top 10 miners</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -179,7 +179,7 @@
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by playtime</h2>
+						<h2><i class="icon-user"></i> Top 10 players</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
