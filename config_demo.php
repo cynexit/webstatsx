@@ -29,5 +29,5 @@ $custom_links = array(
 );
 
 //--- enable the server stats page [beta]
-$enable_server_page = false; //BETA!! Needs some special rights your webserver might not have on the host system
+$enable_server_page = false; //BETA!! Needs some special rights your webserver might not have on the host system. This will not work on windows servers!
 ?>
