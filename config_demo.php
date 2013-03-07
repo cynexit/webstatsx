@@ -1,11 +1,11 @@
 <?php
 // necessary to work
-$mysql_host = 'localhost'; // or 127.0.0.1
-$mysql_user = 'MYSQL_USER';
-$mysql_pass = 'MYSQL_PASSWORD';
-$mysql_db = 'MYSQL_DATABASE_NAME';
+$mysql_host = 'localhost'; // your MySQL server IP
+$mysql_user = 'MYSQL_USER'; // your MySQL database user
+$mysql_pass = 'MYSQL_PASSWORD'; // your MySQL database password
+$mysql_db = 'MYSQL_DATABASE_NAME'; // your MySQL database name
 $mysql_encoding = 'latin1';  // this is recommended because the plugin creates all its tables with latin1 encoding
-$prefix = 'Stats_'; // [default=stats]
+$prefix = 'stats_'; // [default=stats]
 
 
 
@@ -14,7 +14,7 @@ $prefix = 'Stats_'; // [default=stats]
 ########################*/
 
 //--- online/offline check
-$server_ip = 'example.com'; // can be an real ip or an dns alias
+$server_ip = ''; // can be a real ip or a dns alias
 $server_port = 25565; // [default=25565]
 
 //--- add a link to the online map
@@ -24,8 +24,8 @@ $link_to_map = "http://".$server_ip . ":8123";
 
 //--- add custom links to the menu
 $custom_links = array(
-  "Dynamap" => $link_to_map,
-  "Mojang" => "http://mojang.com"
+  //"Dynamap" => $link_to_map, //Uncommend this for Dynmap
+  //"Mojang" => "http://mojang.com" //Example of how to add custom links!
 );
 
 //--- enable the server stats page [beta]
