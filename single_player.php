@@ -213,15 +213,15 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 											<td><?php echo $deaths; ?></td>
 										</tr>
 										<tr>
-											<td>of them players:</td>
+											<td>Players:</td>
 											<td><?php echo $kills_player; ?></td>
-											<td>trough players:</td>
+											<td>Players:</td>
 											<td><?php echo $deaths_player; ?></td>
 										</tr>
 										<tr>
-											<td>of them entities:</td>
+											<td>Entities:</td>
 											<td><?php echo $kills-$kills_player; ?></td>
-											<td>trough entities:</td>
+											<td>Entities:</td>
 											<td><?php echo $deaths-$deaths_player; ?></td>
 										</tr>
 										<tr>
@@ -243,7 +243,7 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 					<div class="row-fluid" id="load_charts">
 						<div class="box span6">
 							<div class="box-header well" data-original-title>
-								<h2><i class="icon-arrow-up"></i> Stuff you killed [chart]</h2>
+								<h2><i class="icon-arrow-up"></i> Stuff you killed</h2>
 								<!--
 								<div class="box-icon">
 									<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -262,7 +262,7 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 
 						<div class="box span6">
 							<div class="box-header well" data-original-title>
-								<h2><i class="icon-arrow-down"></i> Stuff that killed you [chart]</h2>
+								<h2><i class="icon-arrow-down"></i> Stuff that killed you</h2>
 								<!--
 								<div class="box-icon">
 									<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
