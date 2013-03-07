@@ -14,25 +14,25 @@ include('header.php');
 			<div class="row-fluid">
 				<a class="well span3 top-block" href="players.php">
 					<span class="icon32 icon-color icon-users"></span>
-					<div>Number of players with stats</div>
+					<div>Number of players tracked</div>
 					<div><?php echo $stats_global->count_players(); ?></div>
 				</a>
 
 				<a class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-sent"></span>
-					<div>Total distance travelled by players</div>
+					<div>Total distance travelled </div>
 					<div><?php echo number_format($stats_global->get_total_distance_moved(), 2, '.', ''); ?></div>
 				</a>
 
 				<a class="well span3 top-block" href="#">
 					<span class="icon32 icon-green icon-arrowthick-n"></span>
-					<div>Total kills by players</div>
+					<div>Total kills</div>
 					<div><?php echo $stats_global->get_total_kills(); ?></div>
 				</a>
 				
 				<a class="well span3 top-block" href="#">
 					<span class="icon32 icon-red icon-arrowthick-s"></span>
-					<div>Total deaths of players</div>
+					<div>Total deaths</div>
 					<div><?php echo $stats_global->get_total_deaths(); ?></div>
 				</a>
 			</div>
@@ -40,7 +40,7 @@ include('header.php');
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by distance travelled</h2>
+						<h2><i class="icon-user"></i> Top 10 travellers</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -72,7 +72,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by kills</h2>
+						<h2><i class="icon-user"></i> Top 10 killers</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -104,7 +104,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by deaths</h2>
+						<h2><i class="icon-user"></i> Top 10 deaths</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -141,7 +141,7 @@ include('header.php');
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by blocks placed</h2>
+						<h2><i class="icon-user"></i> Top 10 builders</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -173,7 +173,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by blocks broken</h2>
+						<h2><i class="icon-user"></i> Top 10 mining</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -205,7 +205,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 by playtime</h2>
+						<h2><i class="icon-user"></i> Top 10 players</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
