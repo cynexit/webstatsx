@@ -114,7 +114,7 @@ $bonus_methods = new bonus_methods();
 
 						echo $bonus_methods -> get_custom_links();
 						?>
-						<li class="nav-header hidden-tablet">More to come :D</li>
+						<!--<li class="nav-header hidden-tablet">More to come :D</li>-->
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->
