@@ -20,7 +20,7 @@ $server_port = 25565; // [default=25565]
 //--- add a link to the online map
 $link_to_map = "http://".$server_ip . ":8123";
 // Don't want the link to be displayed? Uncomment the next line!
-//$link_to_map = ""
+//$link_to_map = "";
 
 //--- add custom links to the menu
 $custom_links = array(
