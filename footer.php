@@ -10,7 +10,7 @@
 		<div class="modal hide fade" id="modal_info">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h3>info()</h3>
+				<h3>Info</h3>
 			</div>
 			<div class="modal-body">
 				<p><a href="http://dev.bukkit.org/server-mods/lolmewnstats/">Bukkit Stats plugin</a> by <a href="http://www.centrility.nl/">Lolmewn</a></p>
