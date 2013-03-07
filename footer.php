@@ -19,6 +19,7 @@
 				<p>Initial PHP code, HTML &amp; JS modifications: <a href="http://cynexit.com/">cynexit</a></p>
 				<p>Image search and contribution: <a href="https://github.com/BaalMcKloud">BaalMcKloud</a></p>
 				<p>Code contribution and cleanup: <a href="https://github.com/rposborne">rposborne</a></p>
+				<p>Checked spelling and grammar: <a href="https://github.com/Sayshal">Sayshal</a></p>
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Close</a>
