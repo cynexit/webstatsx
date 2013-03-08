@@ -12,6 +12,8 @@ $prefix = 'stats_'; // [default=stats]
 /*########################
  optional stuff
 ########################*/
+//--- show avatars
+$show_avatars = true;
 
 //--- online/offline check
 $server_ip = ''; // can be a real ip or a dns alias
