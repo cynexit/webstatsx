@@ -61,8 +61,7 @@ include('header.php');
 						 	<?php
 						 	$player = $stats_global->get_top_players_move('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
-								//echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
-								echo '<tr><td><a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$row[0].'/256\'>" title="Avatar" href="single_player.php?p='.$row[0].'"><img src="https://minotar.net/avatar/'.$row[0].'/20"> '.$row[0].'</a></td>';
+								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.number_format($row[1], 2, '.', '').'</td></tr>';
 							}
 							?>							
@@ -94,8 +93,7 @@ include('header.php');
 						 	<?php
 						 	$player = $stats_global->get_top_players_kill('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
-								//echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
-								echo '<tr><td><a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$row[0].'/256\'>" title="Avatar" href="single_player.php?p='.$row[0].'"><img src="https://minotar.net/avatar/'.$row[0].'/20"> '.$row[0].'</a></td>';
+								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
 							}
 							?>							
@@ -127,8 +125,7 @@ include('header.php');
 						 	<?php
 						 	$player = $stats_global->get_top_players_death('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
-								//echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
-								echo '<tr><td><a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$row[0].'/256\'>" title="Avatar" href="single_player.php?p='.$row[0].'"><img src="https://minotar.net/avatar/'.$row[0].'/20"> '.$row[0].'</a></td>';
+								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
 							}
 							?>							
@@ -165,8 +162,7 @@ include('header.php');
 						 	<?php
 						 	$player = $stats_global->get_top_players_blocks_placed('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
-								//echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
-								echo '<tr><td><a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$row[0].'/256\'>" title="Avatar" href="single_player.php?p='.$row[0].'"><img src="https://minotar.net/avatar/'.$row[0].'/20"> '.$row[0].'</a></td>';
+								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
 							}
 							?>							
@@ -198,8 +194,7 @@ include('header.php');
 						 	<?php
 						 	$player = $stats_global->get_top_players_blocks_broken('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
-								//echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
-								echo '<tr><td><a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$row[0].'/256\'>" title="Avatar" href="single_player.php?p='.$row[0].'"><img src="https://minotar.net/avatar/'.$row[0].'/20"> '.$row[0].'</a></td>';
+								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
 							}
 							?>							
@@ -231,8 +226,7 @@ include('header.php');
 						  <tbody>
 						  	<?php
 							while ($player = $stats_global->get_players('playtime', 'desc', 10)){
-								//echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$player->player.'">'.$player->player.'</a></td>';
-            					echo '<tr><td><a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'.$player->player.'/256\'>" title="Avatar" href="single_player.php?p='.$player->player.'"><img src="https://minotar.net/avatar/'.$player->player.'/20"> '.$player->player.'</a></td>';
+								echo '<tr><td  class="p_name"><a class="ajax-link" href="single_player.php?p='.$player->player.'">'.$player->player.'</a></td>';
             					echo '<td>'.$player->playtime.'</td>';
             					echo '<td>'.$player->joins.'</td>';
             				}

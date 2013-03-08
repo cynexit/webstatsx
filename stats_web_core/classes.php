@@ -386,6 +386,7 @@ class bonus_methods {
 	public $server_ip;
 	public $custom_links;
 	public $enable_server_page;
+	public $show_avatars;
 	private $server_port;
 
 	function __construct(){
@@ -401,6 +402,12 @@ class bonus_methods {
 			$this->map_link = $link_to_map;
 		}
 
+		if($show_avatars == false){
+			$this->show_avatars = 0;
+		} else {
+			$this->show_avatars = 1;
+		}
+		
 		$this->custom_links = $custom_links;
 		$this->server_ip = $server_ip;
 		$this->server_port = $server_port;

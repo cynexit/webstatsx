@@ -52,7 +52,9 @@ $bonus_methods = new bonus_methods();
 
 	<!-- The fav icon -->
 	<link rel="shortcut icon" href="img/favicon.ico">
-		
+	<script type="text/javascript">
+		var activate_avatars = <?php echo $bonus_methods->show_avatars; ?>;
+	</script>
 </head>
 
 <body>

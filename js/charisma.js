@@ -7,11 +7,8 @@ $(document).ready(function(){
 	//disbaling some functions for Internet Explorer
 	if($.browser.msie)
 	{
-		$('#is-ajax').prop('checked',false);
 		$('#for-is-ajax').hide();
 		$('#toggle-fullscreen').hide();
-		$('.login-box').find('.input-large').removeClass('span10');
-		
 	}
 	
 	
@@ -21,36 +18,30 @@ $(document).ready(function(){
 			$(this).parent().addClass('active');
 	});
 	
-	//establish history variables
-	var
-		History = window.History, // Note: We are using a capital H instead of a lower h
-		State = History.getState(),
-		$log = $('#log');
-	
-	//ajaxify menus
-	/*
-	$('a.ajax-link').click(function(e){
-		if($.browser.msie) e.which=1;
-		if(e.which!=1 || $(this).parent().hasClass('active')){ console.log('no ajax'); return; }
-		e.preventDefault();
-		if($('.btn-navbar').is(':visible'))
-		{
-			$('.btn-navbar').click();
-		}
-		$('#loading').remove();
-		$('#content').fadeOut().parent().append('<div id="loading" class="center">Loading...<div class="center"></div></div>');
-		var $clink=$(this);
-		History.pushState(null, null, $clink.attr('href'));
-		$('ul.main-menu li.active').removeClass('active');
-		$clink.parent('li').addClass('active');	
+
+	var History = window.History, // Note: We are using a capital H instead of a lower h
+	State = History.getState();
+
+	//bind to State Change
+	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+		var State = History.getState(); // Note: We are using History.getState() instead of event.state
+		$.ajax({
+			url:State.url,
+			success:function(msg){
+				$('#content').html($(msg).find('#content').html());
+				$('#loading').remove();
+				$('#content').fadeIn();
+				docReady();
+			}
+		});
 	});
-	*/
+
 
 	// user document.on so that content loaded via ajax also gets the "ajax click" behaviour
 	$(document).on('click', 'a.ajax-link', function(e){
 		console.log('fire ajax call');
 		if($.browser.msie) e.which=1;
-		if(e.which!=1){ alert('no'); return; }
+		if(e.which!=1){ console.log('No ajax with ie'); return; }
 
 		e.preventDefault();
 		e.stopPropagation();
@@ -95,14 +86,16 @@ $(document).ready(function(){
 	function(){
 		$(this).animate({'margin-left':'-=5'},300);
 	});
-	
+
 	//other things to do on document ready, seperated for ajax calls
 	docReady();
 });
-		
-		
+
+
 function docReady(){
-//resize iframe
+	set_avatars();
+
+	//resize iframe
 	if($('#map_frame').length != 0){
 		$('#map_frame').css('height', $(window).height());
 	}
@@ -148,6 +141,10 @@ function docReady(){
 
 	//popover
 	$('[rel="popover"],[data-rel="popover"]').popover();
+	//close popovers on click
+	$('.popover').click(function(e){
+		$(this).remove();
+	});
 
 	//datatable
 	$('.datatable').dataTable({
@@ -182,11 +179,11 @@ function docReady(){
 			"bProcessing": true,
 			"bServerSide": true,
 			"fnInitComplete": function(oSettings, json) {
-      			//$('.dataTables_processing').addClass('btn btn-large btn-primary');
-      			//noty({"text":"This is an error notification","layout":"center","type":"error"});
+				//$('.dataTables_processing').addClass('btn btn-large btn-primary');
+				//noty({"text":"This is an error notification","layout":"center","type":"error"});
     		},
     		"fnDrawCallback": function( oSettings ) {
-    			$('[rel="popover"],[data-rel="popover"]').popover();
+    			set_avatars();
     		},
 			"sAjaxSource": "ajax_player_table.php",
 			"oLanguage": {
@@ -290,3 +287,19 @@ $.extend( $.fn.dataTableExt.oPagination, {
 		}
 	}
 });
+
+function set_avatars(){
+	if(activate_avatars == 1){
+		$('.p_name').each(function(){
+			player = $(this).children('a').html();
+			$(this).html('<a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'+player+'/256\'>" title="Avatar" href="single_player.php?p='+player+'"><img src="https://minotar.net/avatar/'+player+'/20"> '+player+'</a>');
+		});
+
+		//initialize popovers
+		$('[rel="popover"],[data-rel="popover"]').popover();
+		//close popovers on click
+		$('.popover').click(function(e){
+			$(this).remove();
+		});
+	}
+}
