@@ -1,3 +1,6 @@
+2013-03-08
+* avatars are now optional and not longer served by the server but added on the client side trough js
+
 2013-03-07
 * fixed some grammar/spelling mistakes
 
