@@ -28,6 +28,9 @@ $u = '<span class="label label-info">Couldn\'t be checked</span>'; // unknown
 //tables of the stats plugin
 $tables = array('block', 'death', 'kill', 'move', 'player');
 
+//vars in the config
+$config_vars = array('mysql_host', 'mysql_user', 'mysql_pass', 'mysql_db', 'mysql_encoding', 'prefix', 'show_avatars', 'server_ip', 'server_port', 'link_to_map', 'custom_links', 'enable_server_page');
+
 //states of the check
 $config_is_fine = false;
 $connection_is_fine = false;
@@ -82,8 +85,19 @@ $all_tables_okay = true;
 			if($config_is_fine){
 				include 'config.php';
 
-				$mysqli = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
+				//check if all vars are set
+				foreach ($config_vars as $cv) {
+					echo '<tr><td>Var $'.$cv.' is in config?</td><td>';
+					if(isset(${$cv})){
+						echo $y;
+					} else {
+						echo $n;
+					}
+					echo '</td></tr>';
+				}
 
+				// check the connection
+				$mysqli = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
 
 				echo '<tr><td>Connection to database?</td><td>';
 				if (mysqli_connect_errno()) {
@@ -110,11 +124,12 @@ $all_tables_okay = true;
 				}
 			}
 			?>
-		</tbody>
+			</tbody>
+		</table>
+		<p>If you experience some errors, here are a few common solutions:</p>
+		<ul>
+			<li>The table prefix is wrong, try "stats_", "Stats_" or "Stats2_"</li>
+			<li>There is a missing semicolon in the config.php file</li>
+		</ul>
 	</body>
 </html>
-<p>Common errors:</p>
-<ul>
-	<li>The table prefix is wrong, try "stats_", "Stats_" or "Stats2_"</li>
-	<li>There is a missing semicolon in the config.php file</li>
-</ul>
