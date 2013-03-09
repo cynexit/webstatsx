@@ -38,28 +38,6 @@ $all_tables_okay = true;
 <head>
 	<title>Minecraft WEBStatsX check</title>
 	<link id="bs-css" href="css/bootstrap-spacelab.css" rel="stylesheet">
-
-	<?php
-	if(in_array('shell_exec', explode(', ', ini_get('disable_functions')))){
-		?>
-		<script src="js/giant_uncomp.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$.ajax({
-					url:'check.php?c=1',
-					success:function(msg){
-						if(msg == 'true'){
-							$('#check_syntax').html('<?php echo $y; ?>');
-						} else {
-							alert(msg);
-						}
-					}
-				});
-			});
-		</script>
-		<?php
-	}
-	?>
 </head>
 <body>
 	<h1>Quick server check</h1>
