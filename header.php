@@ -34,7 +34,7 @@ $bonus_methods = new bonus_methods();
 	  }
 	</style>
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/charisma-app.css" rel="stylesheet">
 	<link href="css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
 	<link href='css/chosen.css' rel='stylesheet'>
