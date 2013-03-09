@@ -113,3 +113,8 @@ $all_tables_okay = true;
 		</tbody>
 	</body>
 </html>
+<p>Common errors:</p>
+<ul>
+	<li>The table prefix is wrong, try "stats_", "Stats_" or "Stats2_"</li>
+	<li>There is a missing semicolon in the config.php file</li>
+</ul>
