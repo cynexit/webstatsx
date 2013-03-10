@@ -535,3 +535,6 @@ min-height:297px;
 .centered{
 text-align: center;
 }
+.popover-title {
+	text-align: center;
+}

@@ -376,6 +376,25 @@ class stats_global extends stats_settings {
 	}
 
 
+	public function get_players_state($player_list){
+		$query = '';
+		$return_arr = array();
+
+		foreach ($player_list as $player) {
+			$query .= 'player = "'.$player.'" OR ';
+		}
+
+		$res = mysqli_query($this->mysqli, 'SELECT player, lastjoin, lastleave FROM '.$this->prefix.'player WHERE '.substr($query, 0, -4));
+		while($row = mysqli_fetch_assoc($res)){
+			if(strtotime($row['lastjoin']) > strtotime($row['lastleave'])){
+				$return_arr[$row['player']] = 1;
+			} else {
+				$return_arr[$row['player']] = 0;			
+			}
+		}
+
+		return $return_arr;
+	}
 }
 
 
@@ -383,11 +402,15 @@ class bonus_methods {
 	public $map_link;
 	public $tmotd;
 	public $tmotd_headline;
-	public $server_ip;
 	public $custom_links;
 	public $enable_server_page;
 	public $show_avatars;
+	public $show_online_state;
+
 	private $server_port;
+	private $server_ip;
+	public $max_players;
+	public $online_players;
 
 	function __construct(){
 		//include __dir__.'/../config_bonus.php';
@@ -407,6 +430,12 @@ class bonus_methods {
 		} else {
 			$this->show_avatars = 1;
 		}
+
+		if($show_online_state == false){
+			$this->show_online_state = 0;
+		} else {
+			$this->show_online_state = 1;
+		}
 		
 		$this->custom_links = $custom_links;
 		$this->server_ip = $server_ip;
@@ -425,20 +454,34 @@ class bonus_methods {
 
 	public function check_server(){
 		if(empty($this->server_ip)){
-			return NULL;
-		}
-
-		if(@$fp = fsockopen($this->server_ip,$this->server_port,$errCode,$errStr,1)){
-			//online
-			return true;
-		} else {
-			//offline
 			return false;
 		}
-		fclose($fp);
+
+		if ($sock = stream_socket_client('tcp://'.$this->server_ip.':'.$this->server_port, $errno, $errstr, 1)){
+
+			fwrite($sock, "\xfe");
+			$h = fread($sock, 2048);
+			$h = str_replace("\x00", '', $h);
+			$h = substr($h, 2);
+			$data = explode("\xa7", $h);
+			unset($h);
+			fclose($sock);
+
+			echo "here";
+
+			if (sizeof($data) == 3) {
+				$this->online_players = (int) $data[1];
+				$this->max_players = (int) $data[2];
+				return true;
+			} else {
+				return false;
+			}
+
+		} else {
+			return false;
+		}
 	}
 
-	// ----------- everything below this line is not ready in this version ;)
 	public function get_map(){
 		if($this->map_link == '#'){
 			return '<div class="alert alert-info"><strong>No map!</strong> There is no link to a map in the config, so I can\'t include one. :(</div>';

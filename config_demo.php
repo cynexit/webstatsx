@@ -15,6 +15,9 @@ $prefix = 'stats_'; // [default=stats]
 //--- show avatars
 $show_avatars = true;
 
+//--- show online/offline
+$show_online_state = true;
+
 //--- online/offline check
 $server_ip = ''; // can be a real ip or a dns alias
 $server_port = 25565; // [default=25565]

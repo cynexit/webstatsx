@@ -3,6 +3,10 @@ $(document).ready(function(){
 	$('.brand').click(function(){
 		$('#modal_info').modal('show');
 	});
+
+	$('#reload_state').click(function(){
+		set_online_state();
+	});
 	
 	//disbaling some functions for Internet Explorer
 	if($.browser.msie)
@@ -93,7 +97,11 @@ $(document).ready(function(){
 
 
 function docReady(){
+	players_initialized = 0;
+	player_list = '';
+
 	set_avatars();
+	set_online_state();
 
 	//resize iframe
 	if($('#map_frame').length != 0){
@@ -139,13 +147,6 @@ function docReady(){
 	//tooltip
 	$('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"bottom",delay: { show: 400, hide: 200 }});
 
-	//popover
-	$('[rel="popover"],[data-rel="popover"]').popover();
-	//close popovers on click
-	$('.popover').click(function(e){
-		$(this).remove();
-	});
-
 	//datatable
 	$('.datatable').dataTable({
 			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
@@ -184,6 +185,7 @@ function docReady(){
     		},
     		"fnDrawCallback": function( oSettings ) {
     			set_avatars();
+    			set_online_state();
     		},
 			"sAjaxSource": "ajax_player_table.php",
 			"oLanguage": {
@@ -290,16 +292,55 @@ $.extend( $.fn.dataTableExt.oPagination, {
 
 function set_avatars(){
 	if(activate_avatars == 1){
+		player_list = '';
+
 		$('.p_name').each(function(){
 			player = $(this).children('a').html();
-			$(this).html('<a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'+player+'/256\'>" title="Avatar" href="single_player.php?p='+player+'"><img src="https://minotar.net/avatar/'+player+'/20"> '+player+'</a>');
+			$(this).html('<a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'+player+'/256\'>" title="Avatar of '+player+'" href="single_player.php?p='+player+'"><img src="https://minotar.net/avatar/'+player+'/20"> '+player+' <span class="state_'+player+'"></span></a>');
+			player_list = player_list+player+', ';
 		});
 
+		players_initialized = 1;
+
 		//initialize popovers
-		$('[rel="popover"],[data-rel="popover"]').popover();
+		$('[rel="popover"],[data-rel="popover"]').popover({
+			container: '#content',
+			placement: 'right'
+		});
 		//close popovers on click
 		$('.popover').click(function(e){
 			$(this).remove();
+		});
+	}
+}
+
+function set_online_state(){
+	if(activate_online_state == 1){
+		
+		if(players_initialized == 0){
+			player_list = '';
+
+			$('.p_name').each(function(){
+				player = $(this).children('a').html();
+				$(this).html('<a class="ajax-link" href="single_player.php?p='+player+'">'+player+' <span class="state_'+player+'"></span></a>');
+				player_list = player_list+player+', ';
+			});
+		}
+
+		$.ajax({
+			url: 'ajax_players_state.php',
+			type: "POST",
+			data: {"player_list" : player_list},
+			dataType: "json",
+			success: function(data){
+				$.each(data, function(key, val){
+					if(val == 1){
+						$('.state_'+key).html('<span class="label label-success">online</span>');
+					} else {
+						$('.state_'+key).html('<span class="label label-important">offline</span>');
+					}
+				})
+			}
 		});
 	}
 }

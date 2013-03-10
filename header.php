@@ -54,6 +54,9 @@ $bonus_methods = new bonus_methods();
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<script type="text/javascript">
 		var activate_avatars = <?php echo $bonus_methods->show_avatars; ?>;
+		var activate_online_state = <?php echo $bonus_methods->show_online_state; ?>;
+		var players_initialized = 0;
+		var player_list = '';
 	</script>
 </head>
 
@@ -68,26 +71,18 @@ $bonus_methods = new bonus_methods();
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<!--<a class="brand" href="index.php"> <img alt="Charisma Logo" src="img/logo20.png" /> <span>Charisma</span></a>-->
+
 				<a class="brand" href="#"><span>WEBStatsX</span></a>
 
-				<!-- user dropdown starts -->
-				<div class="btn-group pull-right">
-					<a data-rel="tooltip" title="Server: <?php echo $bonus_methods->server_ip; ?>" class="btn" href="#">
-						<i class="icon-hdd"></i> Server status:
-						<?php
-						$state = $bonus_methods->check_server();
-						if(empty($state)){
-							echo '<span class="label">unknown</span>';
-						} elseif($state === true) {
-							echo '<span class="label label-success">Online</span>';
-						} else {
-							echo '<span class="label label-error">Offline</span>';
-						}
-						?>
-					</a>
-				</div>
-				<!-- user dropdown ends -->
+				<?php
+				if($bonus_methods->show_online_state == 1){
+					?>
+					<div class="btn-group pull-right">
+						<a class="btn btn-small btn-info" href="#" id="reload_state"><i class="icon-refresh icon-white"></i> Reload online/offline state</a>
+					</div>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 	</div>
@@ -106,8 +101,7 @@ $bonus_methods = new bonus_methods();
 						<li><a class="ajax-link" href="players.php"><i class="icon-user"></i><span class="hidden-tablet"> Players</span></a></li>
 						<?php
 						if($bonus_methods->enable_server_page == true){
-							echo '<li><a class="ajax-link" href="server.php"><i class="icon-hdd"></i><span class="hidden-tablet"> Server</span></a></li> 
-';
+							echo '<li><a class="ajax-link" href="server.php"><i class="icon-hdd"></i><span class="hidden-tablet"> Server</span></a></li>';
 						}
 
 						if($bonus_methods->map_link != '#'){
@@ -116,7 +110,20 @@ $bonus_methods = new bonus_methods();
 
 						echo $bonus_methods -> get_custom_links();
 						?>
-						<!--<li class="nav-header hidden-tablet">More to come :D</li>-->
+						<li class="nav-header centered">
+							Server status:
+							<?php
+							$state = $bonus_methods->check_server();
+							if(empty($state)){
+								echo '<span class="label">unknown</span>';
+							} elseif($state === true) {
+								echo '<span class="label label-success">Online</span>';
+								echo '<div style="margin-top:5px;" class="progress progress-striped progress-success active"><div class="bar" style="width: '.(($bonus_methods->online_players / $bonus_methods->max_players)*100).'%;">'.$bonus_methods->online_players.'/'.$bonus_methods->max_players.'</div></div>';
+							} else {
+								echo '<span class="label label-error">Offline</span>';
+							}
+							?>
+						</li>
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->
