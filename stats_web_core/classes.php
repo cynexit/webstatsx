@@ -1,4 +1,8 @@
 <?php
+//uncomment to debug
+#error_reporting(E_ALL);
+#ini_set('display_errors', '1');
+
 abstract class stats_settings {
 	public $prefix;
 	public $mysqli;
@@ -459,23 +463,21 @@ class bonus_methods {
 
 		if ($sock = stream_socket_client('tcp://'.$this->server_ip.':'.$this->server_port, $errno, $errstr, 1)){
 
-			fwrite($sock, "\xfe");
-			$h = fread($sock, 2048);
-			$h = str_replace("\x00", '', $h);
-			$h = substr($h, 2);
-			$data = explode("\xa7", $h);
-			unset($h);
+			fwrite($sock, "\xfe\x01");
+			$data = fread($sock, 1024);
 			fclose($sock);
 
-			echo "here";
-
-			if (sizeof($data) == 3) {
-				$this->online_players = (int) $data[1];
-				$this->max_players = (int) $data[2];
-				return true;
-			} else {
+			if($data == false AND substr($data, 0, 1) != "\xFF"){
 				return false;
 			}
+
+			$data = substr($data, 9);
+			$data = mb_convert_encoding($data, 'auto', 'UCS-2');
+			$data = explode("\x00", $data);
+			
+			$this->online_players = (int) $data[3];
+			$this->max_players = (int) $data[4];
+			return true;
 
 		} else {
 			return false;
