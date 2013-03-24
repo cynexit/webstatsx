@@ -78,6 +78,12 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 											<td>Commands done:</td>
 											<td><?php echo $player->commandsdone; ?></td>
 										</tr>
+										<tr>
+											<td>Last join:</td>
+											<td><?php echo $player->lastjoin; ?></td>
+											<td>Last leave:</td>
+											<td><?php echo $player->lastleave; ?></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>

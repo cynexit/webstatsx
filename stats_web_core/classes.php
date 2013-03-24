@@ -47,6 +47,8 @@ class stats_player extends stats_settings {
 	public $onfire;
 	public $wordssaid;
 	public $commandsdone;
+	public $lastjoin;
+	public $lastleave;
 
 	function __construct($player){
 		parent::__construct();
@@ -74,6 +76,8 @@ class stats_player extends stats_settings {
 			$this->onfire = $row[13];
 			$this->wordssaid = $row[14];
 			$this->commandsdone = $row[15];
+			$this->lastjoin = $row[16];
+			$this->lastleave = $row[17];
 		}
 	}
 
