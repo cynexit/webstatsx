@@ -45,8 +45,6 @@
 	<script src="js/jquery.flot.pie.min.js"></script>
 	<script src="js/jquery.flot.stack.js"></script>
 	<script src="js/jquery.flot.resize.min.js"></script>
-	<script src="js/bootstrap-popover.js"></script>
-
 
 	<script src="js/charisma.js"></script>	
 </body>
