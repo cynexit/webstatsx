@@ -118,7 +118,7 @@ $bonus_methods = new bonus_methods();
 								echo '<span class="label">unknown</span>';
 							} elseif($state === true) {
 								echo '<span class="label label-success">Online</span>';
-								echo '<div style="margin-top:5px;" class="progress progress-striped progress-success active"><div class="bar" style="width: '.(($bonus_methods->online_players / $bonus_methods->max_players)*100).'%;">'.$bonus_methods->online_players.'/'.$bonus_methods->max_players.'</div></div>';
+								echo '<div class="progress progress-striped progress-success active progress_shine"><div class="bar" style="width: '.(($bonus_methods->online_players / $bonus_methods->max_players)*100).'%;">'.$bonus_methods->online_players.'/'.$bonus_methods->max_players.'</div></div>';
 							} else {
 								echo '<span class="label label-error">Offline</span>';
 							}

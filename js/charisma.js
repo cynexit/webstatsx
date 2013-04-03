@@ -296,7 +296,7 @@ function set_avatars(){
 
 		$('.p_name').each(function(){
 			player = $(this).children('a').html();
-			$(this).html('<a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'+player+'/256\'>" title="Avatar of '+player+'" href="single_player.php?p='+player+'"><img src="https://minotar.net/avatar/'+player+'/20"> '+player+' <span class="state_'+player+'"></span></a>');
+			$(this).html('<a class="ajax-link" data-rel="popover" data-content="<img src=\'https://minotar.net/avatar/'+player+'/256\'>" title="Avatar of '+player+'" href="single_player.php?p='+player+'"><img src="https://minotar.net/avatar/'+player+'/20"> '+player+' <span class="state_label state_'+player+'"></span></a>');
 			player_list = player_list+player+', ';
 		});
 
@@ -322,7 +322,7 @@ function set_online_state(){
 
 			$('.p_name').each(function(){
 				player = $(this).children('a').html();
-				$(this).html('<a class="ajax-link" href="single_player.php?p='+player+'">'+player+' <span class="state_'+player+'"></span></a>');
+				$(this).html('<a class="ajax-link" href="single_player.php?p='+player+'">'+player+' <span class="state_label state_'+player+'"></span></a>');
 				player_list = player_list+player+', ';
 			});
 		}

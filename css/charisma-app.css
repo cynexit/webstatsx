@@ -538,3 +538,10 @@ text-align: center;
 .popover-title {
 	text-align: center;
 }
+.state_label {
+	float: right;
+}
+.progress_shine {
+	margin-top: 5px;
+    border: 1px solid gray;
+}
