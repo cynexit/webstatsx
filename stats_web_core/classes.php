@@ -59,25 +59,35 @@ class stats_player extends stats_settings {
 			echo 'Error! No user with given name "'.$player.'"!';
 			return NULL;
 		} else {
-			$row = mysqli_fetch_row($res);
-			$this->counter = $row[0];
-			$this->player = $row[1];
-			$this->playtime = $this->convert_playtime($row[2]);
-			$this->arrows = $row[3];
-			$this->xpgained = $row[4];
-			$this->joins = $row[5];
-			$this->fishcatch = $row[6];
-			$this->damagetaken = $row[7];
-			$this->timeskicked = $row[8];
-			$this->toolsbroken = $row[9];
-			$this->eggsthrown = $row[10];
-			$this->itemscrafted = $row[11];
-			$this->omnomnom = $row[12];
-			$this->onfire = $row[13];
-			$this->wordssaid = $row[14];
-			$this->commandsdone = $row[15];
-			$this->lastjoin = $row[16];
-			$this->lastleave = $row[17];
+			$row = mysqli_fetch_assoc($res);
+			$this->counter = $row['counter'];
+			$this->player = $row['player'];
+			$this->playtime = $this->convert_playtime($row['playtime']);
+			$this->arrows = $row['arrows'];
+			$this->xpgained = $row['xpgained'];
+			$this->joins = $row['joins'];
+			$this->fishcatch = $row['fishcatch'];
+			$this->damagetaken = $row['damagetaken'];
+			$this->timeskicked = $row['timeskicked'];
+			$this->toolsbroken = $row['toolsbroken'];
+			$this->eggsthrown = $row['eggsthrown'];
+			$this->itemscrafted = $row['itemscrafted'];
+			$this->omnomnom = $row['omnomnom'];
+			$this->onfire = $row['onfire'];
+			$this->wordssaid = $row['wordssaid'];
+			$this->commandsdone = $row['commandsdone'];
+			$this->lastjoin = $row['lastjoin'];
+			$this->lastleave = $row['lastleave'];
+			#new ones
+			$this->votes = $row['votes'];
+			$this->teleports = $row['teleports'];
+			$this->itempickups = $row['itempickups'];
+			$this->bedenter = $row['bedenter'];
+			$this->bucketfill = $row['bucketfill'];
+			$this->bucketempty = $row['bucketempty'];
+			$this->worldchange = $row['worldchange'];
+			$this->itemdrops = $row['itemdrops'];
+			$this->shear = $row['shear'];
 		}
 	}
 

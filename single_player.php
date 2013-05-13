@@ -84,6 +84,37 @@ $player = new stats_player(htmlentities($_GET['p'], ENT_QUOTES, 'UTF-8'));
 											<td>Last leave:</td>
 											<td><?php echo $player->lastleave; ?></td>
 										</tr>
+
+										<tr>
+											<td>Votes:</td>
+											<td><?php echo $player->votes; ?></td>
+											<td>Teleports:</td>
+											<td><?php echo $player->teleports; ?></td>
+										</tr>
+										<tr>
+											<td>Items picked up:</td>
+											<td><?php echo $player->itempickups; ?></td>
+											<td>Items dropped:</td>
+											<td><?php echo $player->itemdrops; ?></td>
+										</tr>
+										<tr>
+											<td>Entered a bed:</td>
+											<td><?php echo $player->bedenter; ?></td>
+											<td>Switched world:</td>
+											<td><?php echo $player->worldchange; ?></td>
+										</tr>
+										<tr>
+											<td>Filled a bucket:</td>
+											<td><?php echo $player->bucketfill; ?></td>
+											<td>Emptied a bucket:</td>
+											<td><?php echo $player->bucketempty; ?></td>
+										</tr>
+										<tr>
+											<td>Sheared:</td>
+											<td><?php echo $player->shear; ?></td>
+											<td></td>
+											<td></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
