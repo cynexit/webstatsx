@@ -13,6 +13,7 @@ $prefix = 'stats_'; // [default=stats]
  */
 $page_title = 'Minecraft WEBStatsX';
 $header_title = 'WEBStatsX';
+$top_limit = 10;
 
 
 /*########################
