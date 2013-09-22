@@ -40,7 +40,7 @@ include('header.php');
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 travellers</h2>
+						<h2><i class="icon-user"></i> Top <?=$bonus_methods->top_limit?> travellers</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -54,12 +54,12 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total distance</th>
+									<th>Distance</th>
 								</tr>
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_move('mysql', 10);
+							$player = $stats_global->get_top_players_move('mysql', $bonus_methods->top_limit);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.number_format($row[1], 2, '.', '').'</td></tr>';
@@ -72,7 +72,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 killers</h2>
+						<h2><i class="icon-user"></i> Top <?=$bonus_methods->top_limit?> killers</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -86,12 +86,12 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total kills</th>
+									<th>Kills</th>
 								</tr>
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_kill('mysql', 10);
+							$player = $stats_global->get_top_players_kill('mysql', $bonus_methods->top_limit);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
@@ -104,7 +104,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 deaths</h2>
+						<h2><i class="icon-user"></i> Top <?=$bonus_methods->top_limit?> deaths</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -118,12 +118,12 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total deaths</th>
+									<th>Deaths</th>
 								</tr>
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_death('mysql', 10);
+							$player = $stats_global->get_top_players_death('mysql', $bonus_methods->top_limit);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
@@ -141,7 +141,7 @@ include('header.php');
 			<div class="row-fluid">		
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 builders</h2>
+						<h2><i class="icon-user"></i> Top <?=$bonus_methods->top_limit?> builders</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -155,12 +155,12 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total blocks placed</th>
+									<th>Blocks placed</th>
 								</tr>
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_blocks_placed('mysql', 10);
+							$player = $stats_global->get_top_players_blocks_placed('mysql', $bonus_methods->top_limit);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
@@ -173,7 +173,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 mining</h2>
+						<h2><i class="icon-user"></i> Top <?=$bonus_methods->top_limit?> mining</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -187,12 +187,12 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total blocks broken</th>
+									<th>Blocks broken</th>
 								</tr>
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_blocks_broken('mysql', 10);
+							$player = $stats_global->get_top_players_blocks_broken('mysql', $bonus_methods->top_limit);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td class="p_name"><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
@@ -205,7 +205,7 @@ include('header.php');
 
 				<div class="box span4">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-user"></i> Top 10 players</h2>
+						<h2><i class="icon-user"></i> Top <?=$bonus_methods->top_limit?> players</h2>
 						<!--
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
@@ -225,7 +225,7 @@ include('header.php');
 						  </thead>
 						  <tbody>
 						  	<?php
-							while ($player = $stats_global->get_players('playtime', 'desc', 10)){
+							while ($player = $stats_global->get_players('playtime', 'desc', $bonus_methods->top_limit)){
 								echo '<tr><td  class="p_name"><a class="ajax-link" href="single_player.php?p='.$player->player.'">'.$player->player.'</a></td>';
             					echo '<td>'.$player->playtime.'</td>';
             					echo '<td>'.$player->joins.'</td>';
