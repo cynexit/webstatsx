@@ -8,6 +8,12 @@ $mysql_encoding = 'latin1';  // this is recommended because the plugin creates a
 $prefix = 'stats_'; // [default=stats]
 
 
+/**
+ * Display-specific optional configs
+ */
+$page_title = 'Minecraft WEBStatsX';
+$header_title = 'WEBStatsX';
+
 
 /*########################
  optional stuff

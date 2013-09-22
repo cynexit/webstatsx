@@ -19,7 +19,7 @@ $bonus_methods = new bonus_methods();
 		http://twitter.com/halalit_usman
 	-->
 	<meta charset="utf-8">
-	<title>Minecraft WEBStatsX</title>
+	<title><?=$bonus_methods->page_title?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="New Webfrontend for Bukkit Stats, powered by charisma">
 	
@@ -72,7 +72,7 @@ $bonus_methods = new bonus_methods();
 					<span class="icon-bar"></span>
 				</a>
 
-				<a class="brand" href="#"><span>WEBStatsX</span></a>
+				<a class="brand" href="#"><span><?=$bonus_methods->header_title?></span></a>
 
 				<?php
 				if($bonus_methods->show_online_state == 1){
