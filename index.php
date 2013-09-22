@@ -54,7 +54,7 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total distance</th>
+									<th>Distance</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -86,7 +86,7 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total kills</th>
+									<th>Kills</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -118,7 +118,7 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total deaths</th>
+									<th>Deaths</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -155,7 +155,7 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total blocks placed</th>
+									<th>Blocks placed</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -187,7 +187,7 @@ include('header.php');
 							<thead>
 								<tr>
 									<th>Username</th>
-									<th>Total blocks broken</th>
+									<th>Blocks broken</th>
 								</tr>
 							</thead>
 							<tbody>
