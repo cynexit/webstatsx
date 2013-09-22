@@ -417,6 +417,11 @@ class stats_global extends stats_settings {
 
 
 class bonus_methods {
+
+	public $page_title;
+	public $header_title;
+	public $top_limit;
+
 	public $map_link;
 	public $tmotd;
 	public $tmotd_headline;
@@ -436,6 +441,10 @@ class bonus_methods {
 
 		//$this->tmotd = $motd;
 		//$this->tmotd_headline = $motd_headline;
+
+		$this->page_title = empty($page_title) ? 'Minecraft WEBStatsX' : $page_title;
+		$this->header_title = empty($header_title) ? 'WEBStatsX' : $header_title;
+		$this->top_limit = empty($top_limit) || !is_int($top_limit) ? 10 : $top_limit;
 
 		if(empty($link_to_map) || $link_to_map == ''){
 			$this->map_link = '#';
