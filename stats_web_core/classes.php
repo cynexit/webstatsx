@@ -104,7 +104,7 @@ class stats_player extends stats_settings {
 		if($type > 3 || $type < 0){
 			return "Error! No movement of this type exists.";
 		} else {
-			$res = mysqli_query($this->mysqli, 'SELECT distance FROM '.$this->prefix.'move WHERE player = "'.$this->player.'" AND type = '.$type);
+			$res = mysqli_query($this->mysqli, 'SELECT distance FROM '.$this->prefix.'move WHERE player = "'.$this->player.'" AND type = "'.$type.'"');
 			$row = mysqli_fetch_assoc($res);
 
 			if(mysqli_num_rows($res) < 1){
@@ -169,7 +169,7 @@ class stats_player extends stats_settings {
 		if(empty($type)){
 			$res = mysqli_query($this->mysqli, 'SELECT SUM(amount) as amn FROM '.$this->prefix.'kill WHERE player = "'.$this->player.'"');
 		} else {
-			$res = mysqli_query($this->mysqli, 'SELECT SUM(amount) as amn FROM '.$this->prefix.'kill WHERE player = "'.$this->player.'" AND type = '.$type);
+			$res = mysqli_query($this->mysqli, 'SELECT SUM(amount) as amn FROM '.$this->prefix.'kill WHERE player = "'.$this->player.'" AND type = "'.$type.'"');
 		}
 
 		$row = mysqli_fetch_assoc($res);
