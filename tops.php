@@ -166,7 +166,7 @@
 							</thead>
 							<tbody>
 						 	<?php
-						 	$player = $stats_global->get_top_players_blocks_brocken('mysql', 10);
+						 	$player = $stats_global->get_top_players_blocks_broken('mysql', 10);
 							while ($row = mysqli_fetch_row($player)){
 								echo '<tr><td><a class="ajax-link" href="single_player.php?p='.$row[0].'">'.$row[0].'</a></td>';
 								echo '<td>'.$row[1].'</td></tr>';
