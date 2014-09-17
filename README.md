@@ -1,5 +1,7 @@
 # This version is no longer under development! Please use this project instead http://forums.bukkit.org/threads/fluid-mc-stats.245117/
 
+
+
 This is an alternative Web-Interface for the Stats plugin by lolmewn. ( http://dev.bukkit.org/server-mods/lolmewnstats/ )
 It displays nearly everything you can get out of the collected data, it is also working on small screens (mobile phones, tablets).
 
